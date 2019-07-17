@@ -3,6 +3,7 @@ F: 检测一个数是否为水仙花数
 I/O: 直接运行函数执行结构
 '''
 def shuixianhua_check():
+    print("[水仙花数检测函数已启动]")
     target = int(input("请输入待测数字："))
     print("请确认所输入数字为：%d" % target)
     while():
@@ -24,6 +25,7 @@ F: 因数分解、检测一个数是否为完美数
 I/O: 直接运行函数执行结构
 '''
 def wanmei_check():
+    print("[完美数检测函数已启动]")
     target = int(input("请输入待测数字："))
     print("请确认所输入数字为：%d" % target)
     factor=[]
@@ -50,14 +52,28 @@ def wanmei_check():
                 print(i,end="")
                 print(" + ",end="")
             else:
-                print(i,end="")
+                print(i)
+
+def main():
+    ops=['shuixianhua_check()','wanmei_check()']
+    while(1):
+        print("可执行函数有：")
+        j = 1
+        for i in range (len(ops)):
+            print("%d---> " % j, end="")
+            print(ops[i])
+            j = j + 1
+        x = input("请输入要执行的语句序号:")
+        if x == '1':
+            shuixianhua_check()
+        elif x == '2':
+            wanmei_check()
+        else:
+            print("未能找到目标函数，请重新输入")
+        print("")
 
 
 # python的main函数入口方式
 if __name__ == '__main__':
-    ops=['shuixianhua_check()','wanmei_check()']
-    print("可执行函数有：")
-    for i in range (len(ops)):
-        print("---> ", end="")
-        print(ops[i])
-    # 还缺一个input和switch语句来选择执行的程序
+    main()
+
