@@ -19,3 +19,10 @@ def shuixianhua_check():
     else:
         print("数字 %d 不是水仙花数" % target)
 
+# python的main函数入口方式
+if __name__ == '__main__':
+    ops=['shuixianhua_check()']
+    print("可执行函数有：")
+    for i in range (len(ops)):
+        print("---> ", end="")
+        print(ops[i])
