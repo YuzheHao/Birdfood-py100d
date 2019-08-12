@@ -84,7 +84,7 @@ class Player(object):
 def main():
     p1 = Poker()
     p1.shuffle()
-    print(p1.cards)
+    # print(p1.cards)
     me = Player('You')
     banker =Player('Banker')
 
