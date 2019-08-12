@@ -1,3 +1,5 @@
+‘’‘类的构造和使用‘’‘
+
 import Yuzhe_pack as hyz
 class Student(object):
 
@@ -20,6 +22,11 @@ class Student(object):
         else:
             print('%s正在观看岛国爱情大电影' % self._name)
 
+    def __str__(self):
+        # 定义实体的打印输出方式
+        return '%s is a person, and he/she is at the age of %s now' \
+                % (str(self._name), str(self._age))
+                # 反斜杠用于表示"续行符"
 
 def main():
     stu1 = Student('weijia', 23)
@@ -28,7 +35,7 @@ def main():
     stu2.study('高中课程')
     stu1.watch_movie()
     stu2.watch_movie()
-    print(stu1._name)
+    print(stu1)
 
 
 if __name__ == '__main__':
