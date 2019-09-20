@@ -19,7 +19,6 @@ def main():
     y_true = torch.from_numpy(data[...,3:]).float()
 
     model = Net()
-    model
     y_pred = model(x_train)
 
     criterion = nn.MSELoss()
