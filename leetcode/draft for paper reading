@@ -1,0 +1,29 @@
+> Our approach decomposes a space into a topological map derived from first-person activity, organizing an ego-video into a series of visits to the different zones
+
+[Abs]
+why they decompose a space into a topo map? what's the pros? what this result could be used?
+what's affordance?
+what they make an ego-video be? what is topo-map?
+
+[1.Intro]
+affordance指的大概是环境中可供animal互动的对象
+分析了一下传统thrid-person video中的task内容
+在ego-video中，视频中显示的所有内容都是和subject的行为和互动意图息息相关的
+在ego-v中，关键问题变成了how的问题
+现在研究上的问题：忽视了物理空间上的连续性，把动作割裂成了一个个chunk进行处理，chunk之间的link被完全无视了
+the foucsing of this research compared to the formers are two points:
+(1) olds treat actions like a fixed-size chunks
+(2) olds just make dense geometric reconstruction(in fact, they just do 2d segementation)
+这两个问题都是真的非常痛的问题，作者到底能解决多少呢？这是个很重要的问题
+光是看到了这两个问题，我就明白它为什么能入选CVPR了
+
+it is more like a higher-level segementation
+
+> We demonstrate our model on two key tasks: inferring likely object interactions in a novel view and anticipating the actions needed to complete a long-term activity in first- person video.
+
+about application background, they describe it very weakly
+
+> Our approach first trains a zone localization network to discover commonly visited spaces from egocentric video (Sec. 3.1). Then, given a novel video, we use the network to assign video clips to zones and create a topological map (graph) for the environment. We further link zones based on their function across video instances to create consolidated maps (Sec. 3.2). Finally, we leverage the resulting graphs to uncover environment affordances (Sec. 3.3) and anticipate future actions in long videos (Sec. 3.4).
+
+which is very clear about what they are going to do.
+appearently, the "action zone" will be the center idea of this model/task
