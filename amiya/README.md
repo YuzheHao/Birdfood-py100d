@@ -1,5 +1,7 @@
 # README
 
+This is a wiki page for the function usage in `amiya` package, which is made by myself
+
 ### template(`input_arg`, *default_arg*)
 
 #### ---> input (1):
