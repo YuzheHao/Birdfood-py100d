@@ -17,6 +17,14 @@
 ``````
 ----
 
+### info(`text`), warning(`text`), error(`text`), bug(`text`)
+
+* just for highlight some information.
+* same usage as `print`
+
+
+----
+
 ### read_files_in_path(`work_path`, *show_hidden*)
 
 #### ---> input (2)：  
@@ -68,18 +76,40 @@
 
 ### def magic_draw(`y`, *x*, *fig_size*, *fig_title*, *x_label*, *y_label*, *color_code*, *colors*, *alpha*)
 
-#### ---> input (1):
-* arg#1 `y`(List / Lists' List): list/several lists of data need to be draw. 
-* arg#2 `x=range(len(y))` (List / Lists' List): list/several lists of x-coordinates, default as an one-by-one conuting list
-* 
+#### ---> input (1+8):
+* **arg#1** `y`(List / Lists' List): list/several lists of data need to be drew. 
+* **arg#2** `x=range(len(y))` (List / Lists' List): list/several lists of x-coordinates, default as an one-by-one conuting list.
+* arg#3 `fig_size=(15,6)` (tuple): the size of figure.
+* arg#4 `fig_title=None` (string): title of figure.
+* arg#5 `x_lable=None` (string): label shown on x-axis.
+* arg#6 `y_lable=None` (string): label shown on y-axis.
+* arg#7 `colors=['deepskyblue','orange','limegreen','#C82B46','#4EA089','#8B77D0','#93613A','#A5CC4F']` (list): the color used during drawing (max 8 for input).
+* arg#8 `alpha=0.87` (float): the transparent degree.
+* **arg#9** `color_code=None` (int / string): the color you want to use when drawing a single curve. if input an integer, then it will use it as index to choose from the colors box; or you could specify a color name/6-digit-Hex-color-code; if input an invalid code, the color will be deepskyblue by default.
 
 #### ---> output (1):
-* return (type): explanation.
-* more memo
+* show the drew figure 
 
 #### ---> example:
 ``````python
->>>
+>>> a = [1,2,2,3,4,5,5,4,1,2,3,1,4]
+>>> b = [6,5,8,5,8,6,5,8,5,4,5,7,4]
+>>> u = range(len(a))
+>>> u1 = [x+20 for x in u]
+>>> u2 = [x+15 for x in u]
 
+>>> magic_draw(a)
+
+>>> magic_draw(a,color_code='gold')
+>>> magic_draw(a,color_code=3)
+
+>>> magic_draw(a,color_code=999)
+#print: [ERROR] color code went wrong, automatically choose default.
+
+>>> magic_draw(b,x=u1)
+
+>>> magic_draw([a,b], x=[u1,u2])
 ``````
 ----
+
+
