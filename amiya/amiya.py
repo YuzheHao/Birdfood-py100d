@@ -5,11 +5,26 @@ import math
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
+
+def info(text):
+    print('\033[7;32m[info]\033[0m ' + str(text))
+
+def warning(text):
+    print('\033[7;33m[WARNING]\033[0m ' + str(text))
+
+def error(text):
+    print('\033[7;31m[ERROR]\033[0m ' + str(text))
+
+def debug(text):
+    print('\033[7;36;40m[debug]\033[0m ' + str(text))
+
+
 def del_file_suffix(string):
     for i in range(len(string)):
         if string[-(i+1)] == '.':
             return string[:-(i+1)]
-    print('[ERROR] NO SUFFIX FOUND FOR THE INPUT STRING : "%s" !' % string)
+    error()
+    print('NO SUFFIX FOUND FOR THE INPUT STRING : "%s" !' % string)
 
 def read_files_in_path(work_path,show_hidden=False):
     if work_path[-1]!='/': work_path += '/'
@@ -33,9 +48,9 @@ def magic_draw(y,
     fig_title = None,
     x_label = None,
     y_label = None,
-    color_code = None,
     colors = ['deepskyblue','orange','limegreen','#C82B46','#4EA089','#8B77D0','#93613A','#A5CC4F'],
-    alpha = 0.87
+    alpha = 0.87,
+    color_code = None
     ):
 
     plt.figure(figsize=fig_size)
@@ -48,7 +63,7 @@ def magic_draw(y,
     if type(y[0]) == list:
         pics_num = len(y)
         if pics_num > 8:
-            print('[ERROR] picture are too many to draw! (max 8 but got %d)' % pics_num)
+            error('picture are too many to draw! (max 8 but got %d)' % pics_num)
             return
         # if no input x-coordinate situation:
         if not x:
@@ -72,7 +87,7 @@ def magic_draw(y,
             elif type(color_code)==int and (color_code>=0 and color_code<=7):
                 color = colors[color_code]
             else:
-                print('[ERROR] color code went wrong, automatically choose default.')
+                warning('color code went wrong, automatically choose default.')
         plt.plot(x, y, alpha=alpha, color=color)
 
     plt.show()
